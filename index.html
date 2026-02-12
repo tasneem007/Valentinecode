@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A special msg from me to you?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #9c004e0a; /*#11079a27;  Soft pink background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .cat-img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .frontpage {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            height: 100px; /* Space for the growing Yes button */
+        }
+
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #noBtn {
+            background-color: #fff;
+            color: #ff4d6d;
+            border: 2px solid #ff4d6d;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .valentine-container { background: linear-gradient(to bottom right, #ffe6e6, #fff0f5); border-radius: 15px; padding: 30px; text-align: center; font-family: 'Georgia', serif; color: #8b0000; box-shadow: 0 0 20px rgba(255, 182, 193, 0.6); max-width: 500px; margin: 40px auto; position: relative; } 
+        .valentine-container::before { content: "💘"; font-size: 40px; position: absolute; top: -20px; left: -20px; } 
+        .valentine-container::after { content: "💖"; font-size: 40px; position: absolute; bottom: -20px; right: -20px; } 
+        .tastaha-img { width: 150px; border-radius: 50%; margin-bottom: 20px; box-shadow: 0 0 15px #9c004ec8; } 
+        h1 { font-size: 24px; margin-bottom: 15px; } 
+        p { font-size: 18px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        <img src="C:\Users\dell\Downloads\SLPWebsiteDev\teddy.webp" alt="Cute Cat" class="cat-img">
+        
+        <h1 id="question" class="frontpage">Taha, will you come on a date with me?</h1>
+
+        <div class="buttons">
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const question = document.getElementById('question');
+        const container = document.getElementById('mainContainer');
+
+        let yesFontSize = 1.2;
+
+        const messages = [
+            "Are you sure?",
+            "Taha pleaseeee",
+            "You know na I love you alot my cutiee pie",
+            "Ohh handsome husband",
+            "Think again!",
+            "Mr. Merchant don't show me attitude haa",
+            "Last chance...",
+            "Surely not?",
+            "You're breaking my heart ;(",
+            "I'll be very sad...",
+            "Don't do this!",
+            "Taha can't you see this big YES!, click that huh"
+        ];
+        
+        let messageIndex = 0;
+
+        noBtn.addEventListener('click', () => {
+            // Change message
+            noBtn.innerText = messages[messageIndex];
+            messageIndex = (messageIndex + 1) % messages.length;
+
+            // Make Yes button bigger
+          yesFontSize += 0.5;
+yesBtn.style.fontSize = `${yesFontSize}rem`;
+yesBtn.style.padding = `${15 + (yesFontSize * 5)}px ${30 + (yesFontSize * 10)}px`;
+
+        });
+
+        yesBtn.addEventListener('click', () => {
+            container.innerHTML = `
+            <div class="valentine-container">
+                <img src="tastaha.jpg" alt="Cute Cat" class="tastaha-img">
+                <h1>Yay! See you on saturday night! ❤️</h1>
+                <p> 7:00 PM – Meet at Latiff Park Car Parking<br>
+
+9:30 PM – Dinner at Spice It (Ibis Restaurant)<br>
+
+11:00 PM – Leisurely Stroll & Tea<br>
+
+12:00 AM – Juhu Beach Visit(see trending phenomenon)<br>
+
+11:30 PM – End the night with warmth,sex & cuddles
+            </p></div>
+            `;
+        });
+        
+    </script>
+</body>
+</html>
